@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operation</title>
+</head>
+<body>
+<script>
+
+function createStringManipulator() {
+  let result = ""; // Private variable
+
+  function concatenateString(text) {
+    result += text;
+    console.log("Input String:", text);
+    console.log("Result:", result);
+  }
+
+  function reverseString() {
+    result = result.split('').reverse().join('');
+    console.log("Reversed Result:", result);
+  }
+
+  return {
+    concatenate: concatenateString,
+    reverse: reverseString,
+    getResult: () => result 
+  };
+}
+
+
+const stringManipulator = createStringManipulator();
+
+
+stringManipulator.concatenate("Sting, ");
+stringManipulator.concatenate("Operation!");
+stringManipulator.reverse();
+
+
+const currentResult = stringManipulator.getResult();
+console.log("Current Result:", currentResult);
+
+
+
+</script>
+    
+</body>
+</html>

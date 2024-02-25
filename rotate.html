@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotate</title>
+</head>
+<body>
+    <script>
+
+function createArrayRotator() {
+  let array = []; 
+
+  function setArray(inputArray) {
+    array = inputArray.slice(); 
+    console.log("Initial Array:", array);
+  }
+
+  function rotateLeft() {
+    if (array.length <= 1) {
+      console.log("Array is too short. Cannot rotate left.");
+      return;
+    }
+    const firstElement = array.shift();
+    array.push(firstElement);
+    console.log("Array after left rotation:", array);
+  }
+
+  function rotateRight() {
+    if (array.length <= 1) {
+      console.log("Array is too short. Cannot rotate right.");
+      return;
+    }
+    const lastElement = array.pop();
+    array.unshift(lastElement);
+    console.log("Array after right rotation:", array);
+  }
+
+  return {
+    set: setArray,
+    rotateLeft: rotateLeft,
+    rotateRight: rotateRight,
+    getArray: () => array.slice() 
+  };
+}
+
+
+const arrayRotator = createArrayRotator();
+
+
+arrayRotator.set([1, 2, 3, 4, 5]);
+
+
+arrayRotator.rotateLeft();
+arrayRotator.rotateRight();
+arrayRotator.rotateLeft();
+
+
+const currentArray = arrayRotator.getArray();
+console.log("Current Array:", currentArray);
+
+    </script>
+    
+</body>
+</html>

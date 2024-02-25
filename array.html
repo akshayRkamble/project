@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push And Pop</title>
+</head>
+<body>
+    <script>
+
+function createArrayManager() {
+    const array = []; 
+  
+    function pushElement(element) {
+      array.push(element);
+      console.log("Pushed:", element);
+      console.log("Array:", array);
+    }
+  
+    function popElement() {
+      if (array.length === 0) {
+        console.log("Array is empty. Cannot pop.");
+      } else {
+        const poppedElement = array.pop();
+        console.log("Popped:", poppedElement);
+        console.log("Array:", array);
+        return poppedElement;
+      }
+    }
+  
+    return {
+      push: pushElement,
+      pop: popElement,
+      getArray: () => array.slice() 
+    };
+  }
+  
+  
+  const arrayManager = createArrayManager();
+  
+  // Push and pop operations
+  arrayManager.push(5);
+  arrayManager.push(10);
+  arrayManager.pop();
+  arrayManager.push(7);
+  
+  
+  const currentArray = arrayManager.getArray();
+  console.log("Current Array:", currentArray);
+  
+    </script>
+    
+</body>
+</html>
